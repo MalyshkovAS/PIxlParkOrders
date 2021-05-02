@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h1 class="display-4">PixlPark Orders</h1>
+    <table class = "table">
+        <thead>
+            <tr><th>ID</th><th>Title</th><th>Status</th><th>Price</th>
+        </thead>
+    <tbody>
+        @foreach(Result results in Model)
+        {
+            <tr><td>@results.Id</td><td>@results.Title</td><td>@results.Status</td><td>@results.Price</td></tr>
+        }
+    </table>
+

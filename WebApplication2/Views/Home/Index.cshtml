@@ -4,16 +4,12 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">PixlPark Orders</h1>
-    <table class = "table">
-        <thead>
-            <tr><th>ID</th><th>Title</th><th>Status</th><th>Price</th>
-        </thead>
-    <tbody>
-        @foreach(Result results in Model)
-        {
-            <tr><td>@results.Id</td><td>@results.Title</td><td>@results.Status</td><td>@results.Price</td></tr>
-        }
-    </table>
+    <form method="post" action="~/Home/Orders">
+        <label>PublicKey</label><br />
+        <input type="text" name="publicKey" /><br />
+        <label>PrivateKey</label><br />
+        <input type="text" name="privateKey" /><br />
+        <input type="submit" value="Отправить" />
+    </form>
     
 </div>

@@ -8,23 +8,20 @@ namespace WebApplication2
 {
     public class PixlParkApi
     {
-        private string publicKey
-        {
-            get
-            {
-                return "38cd79b5f2b2486d86f562e3c43034f8";
-            }
-        }
-        private string privateKey
-        {
-            get
-            {
-                return "8e49ff607b1f46e1a5e8f6ad5d312a80";
-            }
-        }
+        public string publicKey { get; set; }
+        public string privateKey { get; set; }
         private string reqToken { get; set; }
         private string password { get; set; }
         private string accessToken { get; set; }
+        public PixlParkApi(string prKey, string pubKey)
+        {
+            publicKey = pubKey;
+            privateKey = prKey;
+        }
+        public PixlParkApi()
+        {
+
+        }
         /// <summary>
         /// SHA 1 
         /// </summary>
