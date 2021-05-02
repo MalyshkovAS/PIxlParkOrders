@@ -20,10 +20,15 @@ namespace WebApplication2.Controllers
 
         public IActionResult Index()
         {
-            PixlParkApi pixlPark = new PixlParkApi();
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Orders(string publicKey, string privateKey)
+        {
+            PixlParkApi pixlPark = new PixlParkApi(privateKey,publicKey);
             pixlPark.GetAccessToken();
             Root orders = pixlPark.GetOrderList();
-
             return View(orders.Result);
         }
 
