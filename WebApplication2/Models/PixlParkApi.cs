@@ -8,8 +8,8 @@ namespace WebApplication2
 {
     public class PixlParkApi
     {
-        public string publicKey { get; set; }
-        public string privateKey { get; set; }
+        private string publicKey { get; set; }
+        private string privateKey { get; set; }
         private string reqToken { get; set; }
         private string password { get; set; }
         private string accessToken { get; set; }

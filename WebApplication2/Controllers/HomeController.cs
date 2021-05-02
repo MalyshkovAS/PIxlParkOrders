@@ -26,7 +26,7 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public IActionResult Orders(string publicKey, string privateKey)
         {
-            PixlParkApi pixlPark = new PixlParkApi(privateKey,publicKey);
+            PixlParkApi pixlPark = new PixlParkApi(privateKey, publicKey);
             pixlPark.GetAccessToken();
             Root orders = pixlPark.GetOrderList();
             return View(orders.Result);
