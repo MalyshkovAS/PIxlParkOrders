@@ -25,12 +25,19 @@ namespace WebApplication2
         private string reqToken { get; set; }
         private string password { get; set; }
         private string accessToken { get; set; }
-
-        string Hash(string input)
+        /// <summary>
+        /// SHA 1 
+        /// </summary>
+        /// <param name="input">строка для кодирования</param>
+        /// <returns></returns>
+        private string Hash(string input)
         {
             var hash = new SHA1Managed().ComputeHash(System.Text.Encoding.UTF8.GetBytes(input));
             return string.Concat(hash.Select(b => b.ToString("x2")));
         }
+        /// <summary>
+        /// Получение ключа запроса
+        /// </summary>
         private void GetReqToken()
         {
             WebClient webClient = new WebClient();
@@ -40,6 +47,9 @@ namespace WebApplication2
             reqToken = jsonObj.GetValue("RequestToken").ToString();
 
         }
+        /// <summary>
+        /// Получение ключа доступа
+        /// </summary>
         public void GetAccessToken()
         {
             GetReqToken();
@@ -54,6 +64,10 @@ namespace WebApplication2
             JObject jsonObj = JObject.Parse(response);
             accessToken = jsonObj.GetValue("AccessToken").ToString();
         }
+        /// <summary>
+        /// Получение списка заказов
+        /// </summary>
+        /// <returns>Возврашает элемент типа Root </returns>
         public Root GetOrderList()
         {
 
